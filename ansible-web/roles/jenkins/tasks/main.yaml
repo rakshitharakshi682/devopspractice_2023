@@ -1,0 +1,31 @@
+---
+
+  - name: Install a list of packages
+    yum:
+      name:
+        - wget
+        - git
+      state: present
+
+  - name: Installing java package
+    ansible.builtin.command: sudo dnf install java-17-amazon-corretto -y
+
+  - name: Download Jenkins repo
+    get_url:
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+
+  - name: Import Jenkins Key
+    command: sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+  - name: Install Jenkins packages
+    yum:
+      name:
+        - jenkins
+      state: present
+
+  - name: Jenkins Service Start
+    systemd:
+      state: started
+      name: jenkins
+      enabled: yes

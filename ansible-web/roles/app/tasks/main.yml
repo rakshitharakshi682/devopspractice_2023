@@ -1,0 +1,8 @@
+---
+# tasks file for java app
+
+
+- name: Install the latest version of JAVA
+  ansible.builtin.yum:
+    name: java
+    state: latest

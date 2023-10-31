@@ -1,0 +1,10 @@
+---
+# tasks file for common
+
+- name: Install all common packages
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+     - telnet
+     - wget

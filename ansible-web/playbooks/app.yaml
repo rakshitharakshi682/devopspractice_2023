@@ -1,0 +1,9 @@
+---
+
+  - name: app server
+    hosts: app 
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - app

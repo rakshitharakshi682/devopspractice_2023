@@ -1,0 +1,9 @@
+---
+
+  - name: Jenkins Server
+    hosts: jenkins
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - jenkins

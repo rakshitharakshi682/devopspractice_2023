@@ -1,0 +1,9 @@
+---
+
+  - name: db server
+    hosts: db 
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - db

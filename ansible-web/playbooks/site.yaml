@@ -1,0 +1,35 @@
+---
+
+  - name: common server
+    hosts: all
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - common
+
+  - name: web server
+    hosts: web
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - web
+
+
+  - name: app server
+    hosts: app
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - app
+
+
+  - name: db server
+    hosts: db
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - db

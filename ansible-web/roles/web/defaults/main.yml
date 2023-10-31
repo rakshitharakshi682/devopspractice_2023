@@ -1,0 +1,6 @@
+---
+# defaults file for nginx
+
+service_name: "httpd"
+env_name: "dev"
+fun: "hey Devops engineer"

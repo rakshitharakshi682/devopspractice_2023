@@ -1,0 +1,31 @@
+---
+# tasks file for nginx
+
+
+- name: Install Amazon linux latest version of "{{ service_name }}" on "{{ env_name }}"
+  ansible.builtin.yum:
+    name: "{{ service_name }}"
+    state: latest
+  when: ansible_os_family == "RedHat"
+      
+- name: Install ubuntu linux latest version of "{{ service_name }}" on "{{ env_name }}"
+  ansible.builtin.apt:
+    name: "{{ service_name }}"
+    state: latest
+  when: ansible_os_family == "Ubuntu"
+
+- name: copy static file to "{{ env_name }}"
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/index.html
+
+- name: render index.html {{ env_name }}
+  ansible.builtin.template:
+    src: index.j2
+    dest: /var/www/html/index.html
+
+- name: Start service "{{ service_name }}", if not started on "{{ env_name }}"
+  ansible.builtin.service:
+    name: "{{ service_name }}"
+    state: started
+
