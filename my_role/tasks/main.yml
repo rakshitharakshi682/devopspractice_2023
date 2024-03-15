@@ -1,0 +1,15 @@
+---
+# tasks file for my_role
+- name: install nginx
+  yum:
+    name: nginx
+    state: present
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+
+- name: check if nginx is running
+  systemd:
+    name: nginx
+    state: started

@@ -1,0 +1,7 @@
+---
+- name: install and start ngnix
+  hosts: target
+  remote_user: ec2-user
+  become: yes
+  roles:
+    - my_role
