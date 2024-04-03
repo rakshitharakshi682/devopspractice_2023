@@ -1,7 +1,9 @@
 ---
-- name: install and start ngnix
-  hosts: target
-  remote_user: ec2-user
+- name: install java and jenkins on jenkins server
+  hosts: jenkins
   become: yes
+  remote_user: ec2-user
+  
   roles:
-    - my_role
+    - jenkins
+     
