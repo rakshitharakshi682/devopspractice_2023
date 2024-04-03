@@ -1,9 +1,0 @@
----
-- name: install java and jenkins on jenkins server
-  hosts: jenkins
-  become: yes
-  remote_user: ec2-user
-  
-  roles:
-    - jenkins
-     
